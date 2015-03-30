@@ -9,12 +9,6 @@ namespace MySchoolArchiveExtended
 {
     class PersonsFileHelper
     {
-        /*
-         * counter variable to count rows for the stream writer
-         * in order to write every new line on a new line it will count the number of rows
-         * and write on the next one every next time
-         */
-        private int counter = 0;
         public string FileName { get; set; }
         StreamWriter sw;
         StreamReader sr;
@@ -61,9 +55,24 @@ namespace MySchoolArchiveExtended
         }
         public Person PersonFromString(String input)
         {
+            Person person;
             string[] stringParts = input.Split('|');
-            Person newPerson = new Person(stringParts[0],stringParts[1], int.Parse(stringParts[2]), int.Parse(stringParts[3]), int.Parse(stringParts[4]));
-            return newPerson;
+            if (stringParts[0] == "student")
+            {
+                person = new Student(stringParts[0], stringParts[1], int.Parse(stringParts[2]), int.Parse(stringParts[3]), int.Parse(stringParts[4]), stringParts[5], int.Parse(stringParts[6]));
+            }
+            else if (stringParts[0] == "teacher")
+            {
+                person = new Teacher(stringParts[0],stringParts[1], int.Parse(stringParts[2]), int.Parse(stringParts[3]), int.Parse(stringParts[4]), int.Parse(stringParts[5]));
+                /*
+                 * what about the Function???
+                 */
+            }
+            else
+            {
+                person = new Person(stringParts[0],stringParts[1], int.Parse(stringParts[2]), int.Parse(stringParts[3]), int.Parse(stringParts[4]));
+            }
+            return person;
         }
         /*
          * Writes instances of the class Person as string to a txt file at a specific path
@@ -86,7 +95,6 @@ namespace MySchoolArchiveExtended
             foreach (var human in lines)
             {
                 sw.WriteLine(PersonToString(human));
-                counter++;
             }
             /*
              * close the resources 
