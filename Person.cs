@@ -9,17 +9,22 @@ namespace MySchoolArchiveExtended
     public class Person
     {
         // mutual
+        private string id;
         private string name;
         private int pcn;
         private int age;
         private int yearsAtFontys;
 
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-
         // must be in range 11 11 11  to 99 99 99
         public int PCN
         {
@@ -66,8 +71,9 @@ namespace MySchoolArchiveExtended
         {
             Age++;
         }
-        public Person(string name, int pcn, int age, int yearsAF)
+        public Person(string id, string name, int pcn, int age, int yearsAF)
         {
+            this.Id = id;
             this.Name = name;
             this.PCN = pcn;
             this.Age = age;

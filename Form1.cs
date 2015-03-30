@@ -17,10 +17,12 @@ namespace MySchoolArchiveExtended
         private Person myPerson = null;
         //private Person InstanceClass = new Person();
         List<Person> personList;
+        PersonsFileHelper helper;
 
         public Form1()
         {
             InitializeComponent();
+            helper = new PersonsFileHelper(@"C:\Users\OMIS\Documents\Visual Studio 2013\Projects\Projects\Week05\Solution1\MySchoolArchiveExtended\text.txt");
         }
         private void LogPersonChange(string changeName)
         {
@@ -55,21 +57,24 @@ namespace MySchoolArchiveExtended
 
             if (radioButtonPerson.Checked)
             {
-                myPerson = new Person(name, pcn, age, yearsAF);
+                myPerson = new Person("person",name, pcn, age, yearsAF);
                 personList.Add(myPerson);
+                
                 LogPersonChange("CREATED PERSON :");
 
             }
             else if (radioButtonStudent.Checked)
             {
-                myPerson = new Student(name, pcn, age, yearsAF, country, 0);
+                myPerson = new Student("student",name, pcn, age, yearsAF, country, 0);
                 personList.Add(myPerson);
+                helper.SaveToFile(personList);
                 LogPersonChange("CREATED STUDENT :");
             }
             else
             {
-                myPerson = new Teacher(name, pcn, age, yearsAF, salary);
+                myPerson = new Teacher("teacher",name, pcn, age, yearsAF, salary);
                 personList.Add(myPerson);
+                helper.SaveToFile(personList);
                 LogPersonChange("CREATE TEACHER :");
                 if (myPerson is Teacher)
                 {

@@ -1,0 +1,2 @@
+ student|Peter Smith|123456|25|0|USA|0
+ teacher|Peter Smith|123456|25|0|JUNIOR_DOCENT|1500

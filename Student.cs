@@ -20,8 +20,8 @@ namespace MySchoolArchiveExtended
             get { return ec; }
             set { ec = value; }
         }
-        public Student(string name, int pcn, int age, int yearsAF, string country, int ec)
-            : base(name, pcn, age, yearsAF)
+        public Student(string id, string name, int pcn, int age, int yearsAF, string country, int ec)
+            : base(id, name, pcn, age, yearsAF)
         {
             this.Country = country;
             this.Ec = ec;
