@@ -55,7 +55,7 @@
             this.radioButtonTeacher = new System.Windows.Forms.RadioButton();
             this.btnAddECs = new System.Windows.Forms.Button();
             this.btnPromotion = new System.Windows.Forms.Button();
-            this.btnRetire = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelTeacher.SuspendLayout();
             this.panelStudent.SuspendLayout();
@@ -315,22 +315,22 @@
             this.btnPromotion.UseVisualStyleBackColor = true;
             this.btnPromotion.Click += new System.EventHandler(this.btnPromotion_Click);
             // 
-            // btnRetire
+            // btnImport
             // 
-            this.btnRetire.Location = new System.Drawing.Point(180, 420);
-            this.btnRetire.Name = "btnRetire";
-            this.btnRetire.Size = new System.Drawing.Size(114, 27);
-            this.btnRetire.TabIndex = 39;
-            this.btnRetire.Text = "retire";
-            this.btnRetire.UseVisualStyleBackColor = true;
-            this.btnRetire.Click += new System.EventHandler(this.btnRetire_Click);
+            this.btnImport.Location = new System.Drawing.Point(180, 420);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(114, 27);
+            this.btnImport.TabIndex = 39;
+            this.btnImport.Text = "import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // FormMyPerson
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 496);
-            this.Controls.Add(this.btnRetire);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnPromotion);
             this.Controls.Add(this.btnAddECs);
             this.Controls.Add(this.radioButtonTeacher);
@@ -350,7 +350,7 @@
             this.Controls.Add(this.buttonSchoolYear);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonBirthday);
-            this.Name = "FormMyPerson";
+            this.Name = "Form1";
             this.Text = "School Form";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -392,7 +392,7 @@
         private System.Windows.Forms.RadioButton radioButtonTeacher;
         private System.Windows.Forms.Button btnAddECs;
         private System.Windows.Forms.Button btnPromotion;
-        private System.Windows.Forms.Button btnRetire;
+        private System.Windows.Forms.Button btnImport;
     }
 }
 

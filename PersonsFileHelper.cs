@@ -29,7 +29,7 @@ namespace MySchoolArchiveExtended
             string info = "";
             if (person is Student)
             {
-                info = " ";
+                info = "";
                 Student student = person as Student;
                 
                 info += student.Id + "|" + student.Name + "|" + student.PCN.ToString();
@@ -38,16 +38,16 @@ namespace MySchoolArchiveExtended
             }
             else if (person is Teacher)
             {
-                info = " ";
+                info = "";
                 Teacher teacher = person as Teacher;
 
                 info += teacher.Id + "|" + teacher.Name + "|" + teacher.PCN.ToString();
                 info += "|" + teacher.Age.ToString() + "|" + teacher.YearsAtFontys.ToString();
-                info += "|" + teacher.Function.ToString() + "|" + teacher.Salary;
+                info += "|" + teacher.Salary + "|" + teacher.Function.ToString();
             }
             else
             {
-                info = " ";
+                info = "";
                 info += person.Id + "|" + person.Name + "|" + person.PCN.ToString();
                 info += "|" + person.Age.ToString() + "|" + person.YearsAtFontys.ToString();    
             }
@@ -63,7 +63,8 @@ namespace MySchoolArchiveExtended
             }
             else if (stringParts[0] == "teacher")
             {
-                person = new Teacher(stringParts[0],stringParts[1], int.Parse(stringParts[2]), int.Parse(stringParts[3]), int.Parse(stringParts[4]), int.Parse(stringParts[5]));
+                Function newFunction = (Function)Enum.Parse(typeof(Function), stringParts[6], true);
+                person = new Teacher(stringParts[0],stringParts[1], int.Parse(stringParts[2]), int.Parse(stringParts[3]), int.Parse(stringParts[4]), int.Parse(stringParts[5]), newFunction);
                 /*
                  * what about the Function???
                  */
@@ -100,6 +101,7 @@ namespace MySchoolArchiveExtended
              * close the resources 
              */
             sw.Close();
+            sw.Dispose();
         }
         public List<Person> LoadFromFile(string path)
         {
@@ -114,10 +116,7 @@ namespace MySchoolArchiveExtended
                 sr = new StreamReader(fs);
                 string s;
 
-                /*
-                 * 
-                 */
-                while (!sr.EndOfStream)//ор(!sr.EndOfStream)
+                while (!sr.EndOfStream)
                 {
                     s = sr.ReadLine();
                     internalPersonList.Add(PersonFromString(s));
@@ -126,7 +125,6 @@ namespace MySchoolArchiveExtended
             }
             catch (IOException ex)
             {
-                //Console.WriteLine("Error reading the file");
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
             finally

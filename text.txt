@@ -1,2 +1,3 @@
- student|Peter Smith|123456|25|0|USA|0
- teacher|Peter Smith|123456|25|0|JUNIOR_DOCENT|1500
+teacher|Peter Smith|123456|25|0|1500|JUNIOR_DOCENT
+student|Peter Smith|123456|25|0|USA|0
+person|Peter Smith|123456|25|0

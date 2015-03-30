@@ -27,7 +27,7 @@ namespace MySchoolArchiveExtended
         /// <param name="age">Age of the teacher.</param>
         /// <param name="function">Function of the teacher.</param>
         /// <param name="salary">Monthly salary of the teacher.</param>
-        public Teacher(string id, string name, int pcn, int age,int yearsAF, double salary)
+        public Teacher(string id, string name, int pcn, int age,int yearsAF, double salary, Function function)
             : base(id, name, pcn, age, yearsAF)
         {
             this.Function = function;

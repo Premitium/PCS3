@@ -6,3 +6,4 @@ C:\Users\OMIS\Documents\Visual Studio 2013\Projects\Projects\Week05\Solution1\My
 C:\Users\OMIS\Documents\Visual Studio 2013\Projects\Projects\Week05\Solution1\MySchoolArchiveExtended\obj\Debug\MySchoolArchiveExtended.csproj.GenerateResource.Cache
 C:\Users\OMIS\Documents\Visual Studio 2013\Projects\Projects\Week05\Solution1\MySchoolArchiveExtended\obj\Debug\MySchoolArchiveExtended.exe
 C:\Users\OMIS\Documents\Visual Studio 2013\Projects\Projects\Week05\Solution1\MySchoolArchiveExtended\obj\Debug\MySchoolArchiveExtended.pdb
+C:\Users\OMIS\Documents\Visual Studio 2013\Projects\Projects\Week05\Solution1\MySchoolArchiveExtended\obj\Debug\MySchoolArchiveExtended.Form1.resources

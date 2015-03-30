@@ -59,7 +59,7 @@ namespace MySchoolArchiveExtended
             {
                 myPerson = new Person("person",name, pcn, age, yearsAF);
                 personList.Add(myPerson);
-                
+                helper.SaveToFile(personList);
                 LogPersonChange("CREATED PERSON :");
 
             }
@@ -72,15 +72,10 @@ namespace MySchoolArchiveExtended
             }
             else
             {
-                myPerson = new Teacher("teacher",name, pcn, age, yearsAF, salary);
+                myPerson = new Teacher("teacher",name, pcn, age, yearsAF, salary,Function.JUNIOR_DOCENT);
                 personList.Add(myPerson);
                 helper.SaveToFile(personList);
                 LogPersonChange("CREATE TEACHER :");
-                if (myPerson is Teacher)
-                {
-                    Teacher testIt = myPerson as Teacher;
-                    //testIt.SetRetirementListener(this);
-                }
             }
         }
 
@@ -124,24 +119,16 @@ namespace MySchoolArchiveExtended
             }
         }
 
-        private void btnRetire_Click(object sender, EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
-            if (radioButtonTeacher.Checked)
+            richTextBoxActivityLogMyPerson.Clear();
+            /*
+             * LoadFromFile returns a list with all objects converted from string to object
+             */
+            foreach (var h in helper.LoadFromFile(helper.FileName))
             {
-                foreach (Person teacher in personList)
-                {
-                    if (teacher is Teacher)
-                    {
-                        Teacher TeacherNEW;
-                        TeacherNEW = teacher as Teacher;
-                        WantToRetire(TeacherNEW, "kur!");
-                    }
-                }
+                richTextBoxActivityLogMyPerson.AppendText(h.InfoString());
             }
-        }
-        public void WantToRetire(Teacher t, string reason)
-        {
-            MessageBox.Show(t.Name + " wants to retire." + "\nThe reason is: " + reason);
         }
     }
 }
